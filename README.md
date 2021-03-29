@@ -16,7 +16,7 @@ Configura las URLs en el fichero de configuración config/config.json
 
 ```
 {
-    "proxy_url": "https://www.geowe.org/proxy/wmsTiledProxy.php?url=",
+    "proxy_url": "https://proxy-url",
     "documentation_url":"https://geowe.org/openCrogis/doc/"     
 }
 ```
