@@ -1,0 +1,55 @@
+{
+    "categoryName": "Carreteras",
+    "attribution" : "lotor & openClipArt",
+    "types": [{
+            "iconFont": "fas fa-times",
+            "type": "Cruce",
+            "img": "catalog/road/img/cruce.png"
+        },
+        {
+            "iconFont": "far fa-arrow-alt-circle-right",
+            "type": "Cruce derecha",
+            "img": "catalog/road/img/derecha.png"
+        },
+        {
+            "iconFont": "far fa-arrow-alt-circle-left",
+            "type": "Cruce izquierda",
+            "img": "catalog/road/img/izquierda.png"
+        },
+        {
+            "iconFont": "fas fa-redo",
+            "type": "Curva",
+            "img": "catalog/road/img/curva.png"
+        },
+        {
+            "iconFont": "fas fa-cog",
+            "type": "Glorieta",
+            "img": "catalog/road/img/glorieta.png"
+        },
+        {
+            "iconFont": "fas fa-road",
+            "type": "Recta línea continua",
+            "img": "catalog/road/img/recta-continua.png"
+        },
+        {
+            "iconFont": "fas fa-road",
+            "type": "Recta línea discontinua",
+            "img": "catalog/road/img/recta-discontinua.png"
+        },
+        {
+            "iconFont": "fas fa-road",
+            "type": "Camino de tierra",
+            "img": "catalog/road/img/camino-tierra.png"
+        },
+        {
+            "iconFont": "fas fa-redo",
+            "type": "Curva de tierra",
+            "img": "catalog/road/img/curva-tierra.png"
+        },
+        {
+            "iconFont": "fas fa-parking",
+            "type": "Aparcamiento",
+            "img": "catalog/road/img/aparcamiento.png"
+        }
+    ]
+}

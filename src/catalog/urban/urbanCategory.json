@@ -1,0 +1,41 @@
+{
+    "categoryName": "Urbanismo",
+    "attribution" : "lotor & openClipArt",
+    "types": [{
+            "iconFont": "fas fa-circle",
+            "type": "Alcantarilla",
+            "img": "catalog/urban/img/alcantarilla.png"
+        },
+        {
+            "iconFont": "fas fa-exclamation-triangle",
+            "type": "Bache",
+            "img": "catalog/urban/img/bache.png"
+        },
+        {
+            "iconFont": "fas fa-couch",
+            "type": "Banco",
+            "img": "catalog/urban/img/banco.png"
+        },
+        {
+            "iconFont": "far fa-lightbulb",
+            "type": "Farola",
+            "img": "catalog/urban/img/farola.png"
+        },
+        {
+            "iconFont": "fas fa-grip-lines",
+            "type": "Rejilla",
+            "img": "catalog/urban/img/rejilla.png"
+        },
+        {
+            "iconFont": "fas fa-trash",
+            "type": "Papelera",
+            "img": "catalog/urban/img/papelera.png"
+        },
+        {
+            "iconFont": "fas fa-dumpster",
+            "type": "contenedor",
+            "img": "catalog/urban/img/contenedor.png"
+        }
+        
+    ]
+}

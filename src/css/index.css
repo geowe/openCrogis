@@ -1,0 +1,138 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+.logo{   
+    position:fixed; 
+    z-index: 1;
+}
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+img.selectItem {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.crogis-sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color:rgba(9, 10, 10, 0.7);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.alert-size {
+    margin: auto;
+    width: 60%;
+    padding: 1em;
+}
+
+@media only screen and (max-width: 400px){
+    .alert-size{
+        margin: auto;
+        width: 80%;
+        padding: 1em;
+    }    
+}
+
+.ol-button i {
+    color: 'inherit';
+}
+
+.zoom-level-control {
+    background: rgba(9, 10, 10, 0.5);
+    border-radius: 4px;
+    bottom: 8em;
+    left: .25em;
+    padding: .2em;
+    position: absolute;
+    border: 1px solid #EEE;
+    border-top: none;
+    color: #eee;
+    font-size: 10px;
+    text-align: center;
+    margin: 1px;
+    will-change: contents;
+}
+
+.ol-scale-line {    
+    border-radius: 4px;
+    bottom: 4em;
+    left: .25em;
+    padding: .2px;
+    position: absolute;
+}
+.ol-scale-line-inner {
+    background: rgba(9, 10, 10, 0.5);
+    border: 1px solid #eee;
+    top: 5em;
+    border-top: none;
+    color: #eee;
+    font-size: 10px;
+    text-align: center;
+    margin: 1px;
+    will-change: contents, width;
+    transition: all 0.25s;
+}
+
+.ol-mouse-position {
+    background: #7c99c0;
+    border-radius: 4px;
+    color: #eee;
+    padding: 2px;
+}
+
+.progress {
+    height: 2px;
+    width: 95%;
+    background: #7c99c0 url(../img/progress.gif) no-repeat;
+    background-size: contain;
+}
+
+.category-select {
+    width: 95%;
+}
+
+
+/* para cambiar aspecto de geocoding*/
+.ol-touch .ol-search {
+    left: 0.5em;
+}
+
+.ol-search ul {
+    color: rgb(17, 60, 179);
+    font-size: 0.85em;
+    max-width: 23em;
+}
+
+.ol-search ul i {
+    display: block;
+    color: rgb(235, 34, 34);
+    font-size: 0.85em;
+}
+
+
+.info {
+    display: inline-block;
+    width: 100%;
+}
+
+.info a img {
+    height: 100px;
+    margin-right: .5em;
+    float: left;
+}
+
+.ol-control {
+    background-color: rgba(255,255,255,0.1);
+}

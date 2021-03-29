@@ -1,0 +1,45 @@
+{
+    "categoryName": "Edificios",
+    "attribution" : "lotor & openClipArt",
+    "types": [{
+            "iconFont": "fas fa-home",
+            "type": "Vivienda",
+            "img": "catalog/building/img/house.png"
+        },
+        {
+            "iconFont": "far fa-building",
+            "type": "Edificio",
+            "img": "catalog/building/img/edificio.png"
+        },
+        {
+            "iconFont": "fas fa-city",
+            "type": "Rascacielos",
+            "img": "catalog/building/img/rascacielos.png"
+        },
+        {
+            "iconFont": "fas fa-landmark",
+            "type": "Monumento",
+            "img": "catalog/building/img/monumento.png"
+        },
+        {
+            "iconFont": "far fa-hospital",
+            "type": "Hospital",
+            "img": "catalog/building/img/hospital.png"
+        },
+        {
+            "iconFont": "fas fa-caret-up",
+            "type": "Tejado",
+            "img": "catalog/building/img/tejado.png"
+        },
+        {
+            "iconFont": "fas fa-caret-up",
+            "type": "Tejado en L",
+            "img": "catalog/building/img/tejado-l.png"
+        },
+        {
+            "iconFont": "fas fa-border-style",
+            "type": "Muro",
+            "img": "catalog/building/img/muro.png"
+        }
+    ]
+}

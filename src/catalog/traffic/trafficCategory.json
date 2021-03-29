@@ -1,0 +1,65 @@
+{
+    "categoryName": "Señales de tráfico",
+    "attribution": "lotor & openClipart",
+    "types": [{
+            "type": "Ceda el paso",
+            "img": "catalog/traffic/img/ceda-el-paso.png"
+        },
+        {
+            "type": "Dirección",
+            "img": "catalog/traffic/img/direccion.png"
+        },
+        {
+            "type": "Paso de peatones",
+            "img": "catalog/traffic/img/paso-de-peatones.png"
+        },
+        {
+            "type": "Prohibido girar derecha",
+            "img": "catalog/traffic/img/prohibido-girar-derecha.png"
+        },
+        {
+            "type": "Prohibido girar izquierda",
+            "img": "catalog/traffic/img/prohibido-girar-izquierda.png"
+        },
+        {
+            "type": "Prohibido adelantar",
+            "img": "catalog/traffic/img/prohibido-adelantar.png"
+        },
+        {
+            "type": "Prohibido circular",
+            "img": "catalog/traffic/img/prohibido-circular.png"
+        },
+        {
+            "type": "Prohibido estacionar",
+            "img": "catalog/traffic/img/prohibido-estacionar.png"
+        },
+        {
+            "type": "Prohibido parar",
+            "img": "catalog/traffic/img/prohibido-parar.png"
+        },
+        {
+            "type": "Prohibido girar derecha",
+            "img": "catalog/traffic/img/prohibido-girar-derecha.png"
+        },
+        {
+            "type": "Prohibido girar izquierda",
+            "img": "catalog/traffic/img/prohibido-girar-izquierda.png"
+        },
+        {
+            "type": "Prohibido el paso",
+            "img": "catalog/traffic/img/prohibido-pasar.png"
+        },
+        {
+            "type": "Semáforo",
+            "img": "catalog/traffic/img/semaforo.png"
+        },
+        {
+            "type": "Stop",
+            "img": "catalog/traffic/img/stop.png"
+        },
+        {
+            "type": "Zona escolar",
+            "img": "catalog/traffic/img/zona-escolar.png"
+        }
+    ]
+}

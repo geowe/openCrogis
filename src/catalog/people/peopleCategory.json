@@ -1,0 +1,40 @@
+{
+    "categoryName": "Personas",
+    "types": [
+        {
+            "iconFont": "fas fa-walking",
+            "type": "Persona andando",
+            "img": "catalog/people/img/persona-andando.png"
+        },
+        {
+            "iconFont": "fas fa-male",
+            "type": "Persona parada",
+            "img": "catalog/people/img/persona-parada.png"
+        },
+        {
+            "iconFont": "fas fa-wheelchair",
+            "type": "Persona silla de ruedas",
+            "img": "catalog/people/img/persona-silla-de-ruedas.png"
+        },
+        {
+            "iconFont": "icono-tumbadaabajo",
+            "type": "Persona tumbada abajo",
+            "img": "catalog/people/img/persona-tumbada-abajo.png"
+        },
+        {
+            "iconFont": "icono-tumbadaarriba",
+            "type": "Persona tumbada arriba",
+            "img": "catalog/people/img/persona-tumbada-arriba.png"
+        },
+        {
+            "iconFont": "icono-tumbadaderecha",
+            "type": "Persona tumbada derecha",
+            "img": "catalog/people/img/persona-tumbada-derecha.png"
+        },
+        {
+            "iconFont": "icono-tumbadaizquierda",
+            "type": "Persona tumbada izquierda",
+            "img": "catalog/people/img/persona-tumbada-izquierda.png"
+        }
+    ]
+}

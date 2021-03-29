@@ -1,0 +1,55 @@
+{
+    "categoryName": "Vehículos",
+    "types": [{
+            "iconFont":"fas fa-bicycle",
+            "type": "Bicicleta",
+            "img": "catalog/vehicles/img/vehiculo-bicicleta.png"
+        },
+        {
+            "iconFont":"fas fa-car",
+            "type": "Turismo",
+            "img": "catalog/vehicles/img/vehiculo-turismo.png"
+        },
+        {
+            "iconFont":"fas fa-bus-alt",
+            "type": "Autobus",
+            "img": "catalog/vehicles/img/vehiculo-autobus.png"
+        },
+        {
+            "iconFont":"fas fa-truck-moving",
+            "type": "Camión",
+            "img": "catalog/vehicles/img/vehiculo-camion.png"
+        },
+        {
+            "iconFont":"fas fa-shuttle-van",
+            "type": "Furgoneta",
+            "img": "catalog/vehicles/img/vehiculo-furgoneta.png"
+        },
+        {
+            "iconFont":"fas fa-motorcycle",
+            "type": "Moto de carretera",
+            "img": "catalog/vehicles/img/vehiculo-moto-carretera.png"
+        },
+        {
+            "iconFont":"fas fa-motorcycle",
+            "type": "Moto scooter",
+            "img": "catalog/vehicles/img/vehiculo-moto-scooter.png"
+        },
+        {
+            "iconFont":"fas fa-snowboarding",
+            "type": "Patinete",
+            "img": "catalog/vehicles/img/vehiculo-patinete.png"
+        },
+        {         
+            "iconFont":"fas fa-ambulance",
+            "type": "Ambulancia",
+            "img": "catalog/vehicles/img/vehiculo-ambulancia.png"
+        }
+        ,
+        {
+            "iconFont":"fas fa-fire-extinguisher",
+            "type": "Bomberos",
+            "img": "catalog/vehicles/img/vehiculo-bomberos.png"
+        }
+    ]
+}

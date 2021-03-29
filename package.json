@@ -1,0 +1,39 @@
+{
+    "name": "openCrogis",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "npm run copy:catalog && npm run copy:img && npm run copy:config && npm run copy:static-pages && parcel src/index.html --no-cache",
+        "build": "parcel build --public-url . src/index.html --no-cache --no-source-maps && npm run copy:catalog && npm run copy:img && npm run copy:config && npm run copy:static-pages",
+        "copy:catalog": "copyfiles -u 1 ./src/catalog/**/** ./dist",
+        "copy:img": "copyfiles -u 1 ./src/img/** ./dist",
+        "copy:config": "copyfiles -u 1 ./src/config/** ./dist",
+        "copy:static-pages": "copyfiles -f ./src/ui/html/static/* ./dist",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "Rafael López Torres",
+    "license": "Apache 2.0",
+    "browserslist": [
+        "last 1 Chrome versions"
+    ],
+    "devDependencies": {
+        "@babel/helper-compilation-targets": "^7.12.1",
+        "copyfiles": "^2.2.0",
+        "parcel-bundler": "^1.12.4"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.1",
+        "axios": "^0.19.2",
+        "control": "^0.2.3",
+        "geowe-coordinate-utils": "^1.0.0",
+        "geowe-ui-js": "^0.1.2",
+        "html-to-image": "^0.1.1",
+        "img": "^3.0.3",
+        "jsts": "^2.2.0",
+        "measure.css": "0.0.2",
+        "ol": "^6.4.3",
+        "ol-ext": "^3.1.16"
+    }
+}

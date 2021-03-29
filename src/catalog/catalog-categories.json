@@ -1,0 +1,25 @@
+[{
+        "name": "Vehículos",
+        "definitionFile": "catalog/vehicles/vehicleCategory.json"
+    },
+    {
+        "name": "Señales de tráfico",
+        "definitionFile": "catalog/traffic/trafficCategory.json"
+    },
+    {
+        "name": "Personas",
+        "definitionFile": "catalog/people/peopleCategory.json"
+    },
+    {
+        "name": "Carreteras",
+        "definitionFile":"catalog/road/roadCategory.json"
+    },
+    {
+        "name": "Edificios",
+        "definitionFile":"catalog/building/buildingCategory.json"
+    },
+    {
+        "name": "Urbanismo",
+        "definitionFile":"catalog/urban/urbanCategory.json"
+    }
+]

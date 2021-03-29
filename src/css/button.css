@@ -1,0 +1,19 @@
+.ol-control button {
+    display: inline-block;
+    margin: 0.1em;
+    padding: 0;
+    color: rgb(236, 237, 243);
+    font-size: 1.14em;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    height: 2em;
+    width: 2em;
+    line-height: .4em;
+    background-color: rgba(9, 10, 10, 0.5);
+    border: none;
+    border-radius: 1em;
+    transition: all 0.2s;
+  }
+
+  
