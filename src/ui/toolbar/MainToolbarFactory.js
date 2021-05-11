@@ -65,11 +65,7 @@ export default class UIFactory {
             className: "rfPoint",
             title: "Situa un Punto de Referencia",
             onToggle: function(active) {
-                if (active) {
-                    //let gps = confirm('¿Desea usar el GPS para situar el punto de referencia?');
-                    mapContext.setCursor('crosshair');
-                    
-                    
+                if (active) {                    
                     let modal = ModalDialogFactory.buildGpsRefPointModalDialog();
                     modal.show();
                     modal.setOnAcceptAction(() => {
@@ -83,7 +79,7 @@ export default class UIFactory {
                     modal.setOnCancelAction(() => {
                         let infoText = 'Pulse en el mapa para situar un Punto de Referencia';
                         alertInfo.setContent('<i class="fas fa-map-marker-alt"></i> &#124; '+infoText).show();
-                        
+                        mapContext.setCursor('crosshair');                  
                         drawReferencePointTool.useGPS(false);
                         modal.hide();
                         drawReferencePointTool.activate();

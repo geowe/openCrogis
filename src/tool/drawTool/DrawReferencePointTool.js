@@ -57,6 +57,7 @@ export default class DrawReferencePointTool extends CroquisTool {
         geolocation.setTracking(this.gps);
         
         let rPoint;
+        
         geolocation.on('change:position', ()=> {
             let feature = new Feature();
             let coordinates = geolocation.getPosition();
@@ -66,6 +67,7 @@ export default class DrawReferencePointTool extends CroquisTool {
             feature.setStyle(this.sf.getReferencePointStyle(rPoint));
             
             feature.set('croquis-object', rPoint);
+            console.log('FEATURE: '+coordinates);
             this.layerBuilder.getReferencePointLayer().getSource().addFeature(feature);            
         });
 
@@ -77,14 +79,11 @@ export default class DrawReferencePointTool extends CroquisTool {
 
     activate(){
         
-        if(this.gps){   
-            let rPoint = this.geolocate();         
-            if(rPoint) super.askForObservation(rPoint);
-        }else{
+        if(!this.gps){   
             this.interaction = this.createInteraction();
-            super.activate();    
-        }     
-           
+            super.activate();
+        }
+        this.geolocate();         
     }
 
 }
