@@ -8,7 +8,8 @@ const Color = Object.freeze({
     DEFAULT_CARTOGRAPHIC_MEASURE: 'orange',
     DEFAULT_REAL_MEASURE: 'blue',
     DEFAULT_AUXELEMENT_STROKE: 'green',
-    DEFAULT_REFERENCE_POINT_FILL: '#FF0000'
+    DEFAULT_REFERENCE_POINT_FILL: '#FF0000',
+    DEFAULT_GPS_REF_POINT:'#00FF00'
 });
 
 export default Color;

@@ -29,6 +29,10 @@ export default class PromptModalDialog {
         this.modalDialog.getButton('Aceptar').onclick = onActionFuncion;
     }
 
+    setOnCancelAction(onActionFuncion) {
+        this.modalDialog.getButton('Cancelar').onclick = onActionFuncion;
+    }
+
     getInputValue() {
         return this.getInput().value;
     }

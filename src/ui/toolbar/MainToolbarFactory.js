@@ -8,6 +8,7 @@ import Alert from '../Alert';
 import COISideNav from '../sideNav/CroquisObjectInfoSideNav';
 import { getDrawAuxElementToolBar } from './DrawAuxElementSubbar';
 import { getModifyToolBar } from './ModifyElementSubbar';
+import ModalDialogFactory from '../../ui/modalDialog/ModalDialogFactory';
 
 export default class UIFactory {
 
@@ -65,10 +66,29 @@ export default class UIFactory {
             title: "Situa un Punto de Referencia",
             onToggle: function(active) {
                 if (active) {
-                    alertInfo.setContent('<i class="fas fa-map-marker-alt"></i> &#124; Pulse en el mapa para situar un Punto de Referencia')
-                        .show();
-                    drawReferencePointTool.activate();
+                    //let gps = confirm('¿Desea usar el GPS para situar el punto de referencia?');
                     mapContext.setCursor('crosshair');
+                    
+                    
+                    let modal = ModalDialogFactory.buildGpsRefPointModalDialog();
+                    modal.show();
+                    modal.setOnAcceptAction(() => {
+                        let infoText = 'El punto de referencia se situa según GPS.';
+                        alertInfo.setContent('<i class="fas fa-crosshairs"></i> &#124; '+infoText).show();
+                        mapContext.setCursor('not-allowed');
+                        drawReferencePointTool.useGPS(true);
+                        modal.hide();
+                        drawReferencePointTool.activate();
+                    });
+                    modal.setOnCancelAction(() => {
+                        let infoText = 'Pulse en el mapa para situar un Punto de Referencia';
+                        alertInfo.setContent('<i class="fas fa-map-marker-alt"></i> &#124; '+infoText).show();
+                        
+                        drawReferencePointTool.useGPS(false);
+                        modal.hide();
+                        drawReferencePointTool.activate();
+                    });
+                                        
                 }
             }
         });

@@ -3,6 +3,7 @@ import htmlInputText from '../html/InputText.html';
 import htmlInputNumber from '../html/InputNumber.html';
 import htmlFieldDataLoaded from '../html/FieldDataLoaded.html';
 import htmlDeleteConfirm from '../html/DeleteElementContent.html';
+import htmlGpsConfirm from '../html/GpsElementContent.html';
 import { UIElement } from 'geowe-ui-js/api/base/UIElement';
 import PromptModalDialog from './PromptModalDialog';
 
@@ -85,6 +86,20 @@ export default class ModalDialogFactory {
         }
         
         return new PromptModalDialog(options, fieldDataLoadedHtml);
+    }
+
+    static buildGpsRefPointModalDialog() {
+        var options = {
+            id: "confirmUseGPSDialog",
+            title: "Utilizar GPS para situar punto de referencia",
+            iconFont: 'fas fa-crosshairs',
+            buttons: [{ name: "Aceptar", className: "btn btn-success" },
+                { name: "Cancelar" }
+            ]
+        };
+        let gpsConfirmtHtml = new UIElement('gpsConfirmtnHtml', '', htmlGpsConfirm);
+
+        return new PromptModalDialog(options, gpsConfirmtHtml);
     }
 
 }
