@@ -21,10 +21,18 @@ export default class DrawReferencePointTool extends CroquisTool {
         this.sf = new StyleFactory();
         this.gps = false;
         //this.interaction = this.createInteraction();
+        this.geolocation = new Geolocation({
+            trackingOptions: {
+              enableHighAccuracy: true,
+            },
+            projection: this.mapContext.getMap().getView().getProjection()
+          });
     }
 
     useGPS(gps){
         this.gps = gps;
+        
+        this.geolocation.setTracking(this.gps);
     }
 
     createInteraction() {
@@ -48,42 +56,37 @@ export default class DrawReferencePointTool extends CroquisTool {
     }
 
     geolocate(){
-        let geolocation = new Geolocation({
-            trackingOptions: {
-              enableHighAccuracy: true,
-            },
-            projection: this.mapContext.getMap().getView().getProjection()
-          });
-        geolocation.setTracking(this.gps);
+               
+        let coordinates = this.geolocation.getPosition();
         
-        let rPoint;
+        if(typeof coordinates === 'undefined'){
+            alert('No se pudo obtener la posición. Inténtelo de nuevo');
+            return;
+        }
         
-        geolocation.on('change:position', ()=> {
-            let feature = new Feature();
-            let coordinates = geolocation.getPosition();
-            feature.setGeometry(coordinates ? new Point(coordinates) : null);                                    
-            rPoint = new ReferencePoint();
-            rPoint.setColor(Color.DEFAULT_GPS_REF_POINT);
-            feature.setStyle(this.sf.getReferencePointStyle(rPoint));
-            
-            feature.set('croquis-object', rPoint);
-            console.log('FEATURE: '+coordinates);
-            this.layerBuilder.getReferencePointLayer().getSource().addFeature(feature);            
-        });
+        let feature = new Feature();
+        feature.setGeometry(coordinates ? new Point(coordinates) : null);                                    
+        let rPoint = new ReferencePoint();
+        rPoint.setColor(Color.DEFAULT_GPS_REF_POINT);
+        feature.setStyle(this.sf.getReferencePointStyle(rPoint));        
+        feature.set('croquis-object', rPoint);            
+        this.layerBuilder.getReferencePointLayer().getSource().addFeature(feature);            
+        
+        super.askForObservation(rPoint);
 
-        geolocation.on('error', function (error) {
-            alert('ERROR GEOLOCALIZANDO');
+        this.geolocation.on('error', function (error) {
+            alert('Falló al obtener posición del GPS');
           });
-        return rPoint;
     }
 
     activate(){
         
-        if(!this.gps){   
+        if(this.gps){   
+            this.geolocate();             
+        }else{
             this.interaction = this.createInteraction();
             super.activate();
-        }
-        this.geolocate();         
+        }    
     }
 
 }

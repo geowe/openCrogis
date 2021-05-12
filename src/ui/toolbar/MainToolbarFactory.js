@@ -83,14 +83,15 @@ export default class UIFactory {
                         drawReferencePointTool.useGPS(false);
                         modal.hide();
                         drawReferencePointTool.activate();
-                    });
-                                        
+                    });                                        
                 }
             }
         });
         referencePointButton.on('change:active', (event) => {
             if (!event.active) {
                 alertInfo.hide();
+                drawReferencePointTool.useGPS(false);
+                mapContext.removeCurrentInteraction();
             }
         });
         toggleBar.addControl(referencePointButton);
