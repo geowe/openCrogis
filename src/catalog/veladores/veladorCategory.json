@@ -1,0 +1,14 @@
+{
+    "categoryName": "Veladores",
+    "types": [{            
+            "type": "Mesa 4 sillas",
+            "img": "catalog/veladores/img/mesa-4-sillas.png",
+            "radius":1
+        },
+        {         
+            "type": "Mesa 2 sillas",
+            "img": "catalog/veladores/img/mesa-2-sillas.png",
+            "radius":2
+        }
+    ]
+}

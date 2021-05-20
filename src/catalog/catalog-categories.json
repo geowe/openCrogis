@@ -21,5 +21,9 @@
     {
         "name": "Urbanismo",
         "definitionFile":"catalog/urban/urbanCategory.json"
+    },
+    {
+        "name": "Veladores",
+        "definitionFile":"catalog/veladores/veladorCategory.json"
     }
 ]
