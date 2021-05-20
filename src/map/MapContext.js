@@ -34,7 +34,7 @@ export default class MapContext {
                     collapsible: true
                 }
             }).extend(
-                [new ScaleLine(),/* new ZoomLevelControl(),
+                [new ScaleLine({bar:true, text:true, units: 'metric'}),/* new ZoomLevelControl(),
                     new MousePosition({
                         coordinateFormat: createStringXY(6),
                         projection: 'EPSG:4326'

@@ -1,3 +1,5 @@
+import { textHeights } from 'ol/render/canvas';
+import TileSource from 'ol/source/tile';
 import { Icon, Style } from 'ol/style';
 
 
@@ -17,6 +19,7 @@ export default class CroquisObject {
         this.img = new Image();
         this.img.src = croquisObjectType.getImg();
         this.observation;
+        this.radius;
     }
 
 
@@ -99,6 +102,11 @@ export default class CroquisObject {
         this.observation = observation;
     }
 
+    getRadius() {
+        return this.radius;
+    }
 
-
+    setRadius(radius){
+        this.radius = radius;
+    }
 }

@@ -26,15 +26,19 @@ export default class DrawCroquisObjectTool extends CroquisTool {
 
     createInteraction() {
         this.mapContext.removeCurrentInteraction();
+        console.log(this.croquisObjectType.getType());
         var interaction = new Draw({
             source: this.layerBuilder.getCroquisObjectLayer().getSource(),
             type: 'Circle',
-            geometryFunction: function(coordinates, geometry) {
+            geometryFunction: (coordinates, geometry) =>{
                 var center = coordinates[0];
                 var last = coordinates[1];
                 var dx = center[0] - last[0];
                 var dy = center[1] - last[1];
-                var radius = Math.sqrt(dx * dx + dy * dy);
+                let radius = this.croquisObjectType.getRadius();
+                if(typeof radius == 'undefined'){                    
+                    radius = Math.sqrt(dx * dx + dy * dy);
+                }
                 var rotation = Math.PI - Math.atan2(dy, dx);
                 geometry = geometry || new Circle(center, radius);
                 geometry.setCenter(center);

@@ -5,10 +5,11 @@
  * @class CroquisObjectType
  */
 export default class CroquisObjectType {
-    constructor(category, type, imgPath) {
+    constructor(category, type, imgPath, radius) {
         this.category = category;
         this.type = type;
         this.img = imgPath;
+        this.radius = radius;
     }
 
     getCategory() {
@@ -21,5 +22,9 @@ export default class CroquisObjectType {
 
     getImg() {
         return this.img;
+    }
+
+    getRadius(){
+        return this.radius;
     }
 }

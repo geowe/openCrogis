@@ -107,7 +107,8 @@ export default class CatalogSideNav {
 
         this.typesMap.clear();
         categoryJson.types.forEach(type => {
-            this.typesMap.set(type.type, type.img);
+            //this.typesMap.set(type.type, type.img);
+            this.typesMap.set(type.type, type);
         })
 
         //hay que vaciarlo cada vez, pero ¿no hay otra forma?
@@ -129,11 +130,12 @@ export default class CatalogSideNav {
         attribution.innerHTML = categoryJson.attribution || '';
     }
 
-    onSelectionChanged(type, selectedItems) {
+    onSelectionChanged(type, selectedItems) {        
         var croquisObjectType = new CroquisObjectType(
             this.dropdown.options[this.dropdown.selectedIndex].text,
             type.getId(),
-            this.typesMap.get(type.getId()));
+            this.typesMap.get(type.getId()).img,
+            this.typesMap.get(type.getId()).radius);
         var drawCroquisObjectTool = new DrawCroquisObjectTool(croquisObjectType, this.layerBuilder, this.mapConfig);
         drawCroquisObjectTool.activate();
         this.mapConfig.setCursor('cell');
