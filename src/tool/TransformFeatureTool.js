@@ -3,7 +3,7 @@ import { Point } from 'ol/geom';
 import StyleFactory from '../style/StyleFactory';
 import { shiftKeyOnly } from 'ol/events/condition';
 import CroquisTool from './CroquisTool';
-
+import configuration from '../Configuration';
 
 /**
  * Herramienta de transformación de features: GIRAR, ESCALAR y MOVER
@@ -28,10 +28,10 @@ export default class TransformFeatureTool extends CroquisTool {
         var transform = new Transform({
             enableRotatedTransform: true,
             hitTolerance: 2,
-            translateFeature: true,
-            scale: true,
-            rotate: true,
-            translate: true,
+            translateFeature: configuration.enableTranslate(),
+            scale: configuration.enableScale(),
+            rotate: configuration.enableRotate(),
+            translate: configuration.enableTranslate(),
             keepAspectRatio: shiftKeyOnly,
             //noFlip: true,
             stretch: false

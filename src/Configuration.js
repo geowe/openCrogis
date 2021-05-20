@@ -17,7 +17,19 @@ class Configuration {
     }
 
     getDocumentationURL(){
-        return this._config.documentation_url
+        return this._config.documentation_url;
+    }
+
+    enableScale(){        
+        return this._config.transformObject.enableScale;
+    }
+
+    enableRotate(){        
+        return this._config.transformObject.enableRotate;
+    }
+
+    enableTranslate(){        
+        return this._config.transformObject.enableTranslate;
     }
 
 }
