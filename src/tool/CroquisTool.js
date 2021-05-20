@@ -1,4 +1,5 @@
 import ModalDialogFactory from "../ui/modalDialog/ModalDialogFactory";
+import configuration from '../Configuration';
 
 /**
  * Clase padre para las herramientas de croquis.
@@ -30,13 +31,15 @@ export default class CroquisTool {
     }
 
     askForObservation(croquisObject) {
-        let modal = ModalDialogFactory.buildInputTextModalDialog('Escriba una observación para el elemento');
-        modal.show();
-        modal.setOnAcceptAction(() => {
-            let inputValue = modal.getInputValue();
-            croquisObject.setObservation(inputValue);
-            modal.hide();
-        });
+        if(configuration.ask4Observation()){
+            let modal = ModalDialogFactory.buildInputTextModalDialog('Escriba una observación para el elemento');
+            modal.show();
+            modal.setOnAcceptAction(() => {
+                let inputValue = modal.getInputValue();
+                croquisObject.setObservation(inputValue);
+                modal.hide();
+            });
+        }        
     }
 
     setUIElement(uiElement) {

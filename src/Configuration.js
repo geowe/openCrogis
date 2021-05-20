@@ -32,6 +32,10 @@ class Configuration {
         return this._config.transformObject.enableTranslate;
     }
 
+    ask4Observation(){
+        return this._config.ask4Observation;
+    }
+
 }
 
 export default new Configuration();
