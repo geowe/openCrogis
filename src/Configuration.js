@@ -8,6 +8,10 @@ class Configuration {
         this._config = await response.json();
     }
 
+    setDefaultConfig(){
+        this._config = defaultConfig;
+    }
+
     getProxyURL() {
         return this._config.proxy_url;
     }

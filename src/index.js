@@ -24,6 +24,7 @@ configuration.load().then(() => {
     console.log("Error al cargar la configuración")
     Alert.error("Error al cargar la configuración. Cargando configuración por defecto ").showForAWhile(5000);
     proxyTileLoader.setProxyURL(configuration.getDefaultProxyURL());
+    configuration.setDefaultConfig();
     init();
 });
 
