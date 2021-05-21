@@ -16,4 +16,24 @@
     transition: all 0.2s;
   }
 
+.ol-control.ol-search > button:before{
+  border: none;  
+}
+
+.ol-control.ol-search > button:after{  
+  font-family: "Font Awesome 5 Free"; 
+	font-weight: 900;	
+  content: "\f002";  
+  position: absolute;  
+  top: .70em;
+  left: 1.30em;
+  width: 0em;
+  height: 0em;
+  background-color: currentColor;
+  border-radius: .05em;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-box-shadow: -0.18em 0 0 -0.03em;
+  box-shadow: -0.18em 0 0 -0.03em;
+}  
   

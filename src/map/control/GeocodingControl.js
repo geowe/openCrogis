@@ -15,7 +15,8 @@ export default class GeocodingControl extends SearchNominatim {
             placeholder: 'GeoLocalización...',
             typing: 1000,
             minLength: 10,
-            position: true
+            position: true,
+            label: 'Busca un lugar'
         });
 
         this.on('select', function(e) {
