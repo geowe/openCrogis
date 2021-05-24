@@ -1,6 +1,7 @@
 import Bar from 'ol-ext/control/Bar';
 import Button from 'ol-ext/control/Button';
 import CroquisSenderTool from '../../tool/croquis/CroquisSenderTool';
+import GeolocateTool from '../../tool/GeolocateTool';
 import CatalogSideNav from '../sideNav/CatalogSideNav';
 import { Attribution } from 'ol/control';
 
@@ -29,7 +30,18 @@ export default class MenuToolbar {
         });
         menuToolbar.addControl(catalogButton);
        
-        var croquisSender = new CroquisSenderTool(this.mapContext);
+        let geolocateTool = new GeolocateTool(this.mapContext);
+        var geolocateButton = new Button({
+            html: '<i class="fas fa-crosshairs"></i>',
+            className: "geolocate",
+            title: "situar el mapa en mi posición",
+            handleClick:async () => {
+                 await geolocateTool.geolocate();
+            }
+        });
+        menuToolbar.addControl(geolocateButton);  
+        
+        let croquisSender = new CroquisSenderTool(this.mapContext);
         var saveCroquisButton = new Button({
             html: '<i class="fas fa-download"></i>',
             className: "save-croquis",
