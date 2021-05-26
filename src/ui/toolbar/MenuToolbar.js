@@ -30,16 +30,18 @@ export default class MenuToolbar {
         });
         menuToolbar.addControl(catalogButton);
        
+       
         let geolocateTool = new GeolocateTool(this.mapContext);
         var geolocateButton = new Button({
             html: '<i class="fas fa-crosshairs"></i>',
             className: "geolocate",
             title: "situar el mapa en mi posición",
             handleClick:async () => {
-                 await geolocateTool.geolocate();
+                await geolocateTool.geolocate();
             }
         });
         menuToolbar.addControl(geolocateButton);  
+    
         
         let croquisSender = new CroquisSenderTool(this.mapContext);
         var saveCroquisButton = new Button({
@@ -76,6 +78,6 @@ export default class MenuToolbar {
         */
 
         return menuToolbar;
-
     }
+   
 }

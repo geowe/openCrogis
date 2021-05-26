@@ -6,6 +6,7 @@ import Geolocation from 'ol/Geolocation';
 import Point from 'ol/geom/Point';
 import { Feature } from 'ol';
 import Color from '../../style/Color';
+import GeolocateTool from '../GeolocateTool';
 
 /**
  * Responsable de situar en el mapa un punto de referencia
@@ -21,12 +22,17 @@ export default class DrawReferencePointTool extends CroquisTool {
         this.sf = new StyleFactory();
         this.gps = false;
         //this.interaction = this.createInteraction();
-        this.geolocation = new Geolocation({
+        /*this.geolocation = new Geolocation({
             trackingOptions: {
               enableHighAccuracy: true,
             },
             projection: this.mapContext.getMap().getView().getProjection()
           });
+        this.geolocation.on('error', function (error) {
+            alert('Falló al obtener posición del GPS');
+          });*/
+          this.geolocateTool = new GeolocateTool(this.mapContext);
+          this.geolocation = this.geolocateTool.getGeolocation();
     }
 
     useGPS(gps){
@@ -55,7 +61,7 @@ export default class DrawReferencePointTool extends CroquisTool {
         return drawPointInteraction;
     }
 
-    geolocate(){
+    async geolocate(){
                
         let coordinates = this.geolocation.getPosition();
         
@@ -72,15 +78,10 @@ export default class DrawReferencePointTool extends CroquisTool {
         feature.set('croquis-object', rPoint);            
         this.layerBuilder.getReferencePointLayer().getSource().addFeature(feature);            
         
-        super.askForObservation(rPoint);
-
-        this.geolocation.on('error', function (error) {
-            alert('Falló al obtener posición del GPS');
-          });
+        super.askForObservation(rPoint);        
     }
 
-    activate(){
-        
+    activate(){        
         if(this.gps){   
             this.geolocate();             
         }else{
