@@ -2,12 +2,11 @@ import Draw from 'ol/interaction/Draw';
 import ReferencePoint from '../../model/referencePoint/ReferencePoint';
 import StyleFactory from '../../style/StyleFactory';
 import CroquisTool from '../CroquisTool';
-import Geolocation from 'ol/Geolocation';
 import Point from 'ol/geom/Point';
 import { Feature } from 'ol';
 import Color from '../../style/Color';
 import GeolocateTool from '../GeolocateTool';
-
+import Alert from '../../ui/Alert';
 /**
  * Responsable de situar en el mapa un punto de referencia
  *
@@ -21,18 +20,9 @@ export default class DrawReferencePointTool extends CroquisTool {
         this.layerBuilder = mapContext.getLayerBuilder();
         this.sf = new StyleFactory();
         this.gps = false;
-        //this.interaction = this.createInteraction();
-        /*this.geolocation = new Geolocation({
-            trackingOptions: {
-              enableHighAccuracy: true,
-            },
-            projection: this.mapContext.getMap().getView().getProjection()
-          });
-        this.geolocation.on('error', function (error) {
-            alert('Falló al obtener posición del GPS');
-          });*/
-          this.geolocateTool = new GeolocateTool(this.mapContext);
-          this.geolocation = this.geolocateTool.getGeolocation();
+        
+        this.geolocateTool = new GeolocateTool(this.mapContext);
+        this.geolocation = this.geolocateTool.getGeolocation();
     }
 
     useGPS(gps){
@@ -63,10 +53,10 @@ export default class DrawReferencePointTool extends CroquisTool {
 
     async geolocate(){
                
-        let coordinates = this.geolocation.getPosition();
+        var coordinates = this.geolocation.getPosition();
         
         if(typeof coordinates === 'undefined'){
-            alert('No se pudo obtener la posición. Inténtelo de nuevo');
+            Alert.error('No se pudo obtener la posición. Inténtelo de nuevo').showForAWhile(2000);
             return;
         }
         

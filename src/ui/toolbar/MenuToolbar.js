@@ -36,8 +36,8 @@ export default class MenuToolbar {
             html: '<i class="fas fa-crosshairs"></i>',
             className: "geolocate",
             title: "situar el mapa en mi posición",
-            handleClick:async () => {
-                await geolocateTool.geolocate();
+            handleClick: () => {
+                 geolocateTool.geolocate();
             }
         });
         menuToolbar.addControl(geolocateButton);  
