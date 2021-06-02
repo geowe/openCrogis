@@ -72,8 +72,8 @@ export default class UIFactory {
                         let infoText = 'El punto de referencia se situa según GPS.';
                         alertInfo.setContent('<i class="fas fa-crosshairs"></i> &#124; '+infoText).show();
                         mapContext.setCursor('not-allowed');
-                        drawReferencePointTool.useGPS(true);
                         modal.hide();
+                        drawReferencePointTool.useGPS(true);                        
                         drawReferencePointTool.activate();
                     });
                     modal.setOnCancelAction(() => {

@@ -51,7 +51,7 @@ export default class DrawReferencePointTool extends CroquisTool {
         return drawPointInteraction;
     }
 
-    async geolocate(){
+    geolocate(){
                
         var coordinates = this.geolocation.getPosition();
         
