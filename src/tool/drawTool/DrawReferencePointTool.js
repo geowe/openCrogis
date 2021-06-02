@@ -56,19 +56,21 @@ export default class DrawReferencePointTool extends CroquisTool {
         var coordinates = this.geolocation.getPosition();
         
         if(typeof coordinates === 'undefined'){
-            Alert.error('No se pudo obtener la posición. Inténtelo de nuevo').showForAWhile(2000);
-            return;
+            Alert.error('<i class="fas fa-exclamation-circle"></i> No se pudo obtener la posición. Inténtelo de nuevo').showForAWhile(2000);
+            
+        }else{
+            let feature = new Feature();
+            feature.setGeometry(coordinates ? new Point(coordinates) : null);                                    
+            let rPoint = new ReferencePoint();
+            rPoint.setColor(Color.DEFAULT_GPS_REF_POINT);
+            feature.setStyle(this.sf.getReferencePointStyle(rPoint));        
+            feature.set('croquis-object', rPoint);            
+            this.layerBuilder.getReferencePointLayer().getSource().addFeature(feature);            
+            
+            super.askForObservation(rPoint);   
+            this.useGPS(false);     
         }
         
-        let feature = new Feature();
-        feature.setGeometry(coordinates ? new Point(coordinates) : null);                                    
-        let rPoint = new ReferencePoint();
-        rPoint.setColor(Color.DEFAULT_GPS_REF_POINT);
-        feature.setStyle(this.sf.getReferencePointStyle(rPoint));        
-        feature.set('croquis-object', rPoint);            
-        this.layerBuilder.getReferencePointLayer().getSource().addFeature(feature);            
-        
-        super.askForObservation(rPoint);        
     }
 
     activate(){        

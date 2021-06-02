@@ -19,21 +19,21 @@ export default class GeolocateTool extends CroquisTool {
             },
             projection: this.mapContext.getMap().getView().getProjection()
         });
-        this.geolocation.on('error', function (error) {
-            Alert.error('Falló al obtener posición del GPS').showForAWhile(3000);
+        this.geolocation.on('error', (error) => {
+            Alert.error('<i class="fas fa-exclamation-circle"></i> Falló al obtener posición del GPS').showForAWhile(3000);
         });
-        this.geolocation.setTracking(true);
+        this.geolocation.setTracking(false);
     }
 
     geolocate(){        
     
         if (navigator.geolocation){
-            
+            this.geolocation.setTracking(true);
         
             var coordinates = this.geolocation.getPosition();
             
             if(typeof coordinates === 'undefined'){
-                Alert.error('No se pudo obtener la posición. Inténtelo de nuevo').showForAWhile(2000);
+                Alert.error('<i class="fas fa-exclamation-circle"></i> No se pudo obtener la posición. Inténtelo de nuevo').showForAWhile(2000);
                 return;
             }else{
                 this.mapContext.zoomTo(coordinates, 20);            
@@ -41,7 +41,7 @@ export default class GeolocateTool extends CroquisTool {
             this.geolocation.setTracking(false);        
             
         }else{
-            Alert.error('No se ha podido establecer su localización');
+            Alert.error('<i class="fas fa-exclamation-circle"></i> Parece que el navegador no permite Geolocalización.');
         }
     }
 
