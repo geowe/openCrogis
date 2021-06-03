@@ -61,16 +61,7 @@ export default class CroquisLoaderTool extends CroquisTool {
         
         return dataLoader;
     }
-
-    parseCroquis(croquisString){
-        try {
-           return JSON.parse(croquisString);
-        } catch (error) {
-            let errorMsg ='No se ha podido parsear el croquis';
-            throw new Error(errorMsg);
-        }
-    }
-
+    
     showFinishDialog(unpositionedObjects) {
         let modal = ModalDialogFactory.buildFinishFielDataLoadModalDialog('Carga de datos de campo finalizada', unpositionedObjects);        
         modal.show();
