@@ -1,7 +1,6 @@
 import htmlColorPicker from '../html/ColorPicker.html';
 import htmlInputText from '../html/InputText.html';
 import htmlInputNumber from '../html/InputNumber.html';
-import htmlFieldDataLoaded from '../html/FieldDataLoaded.html';
 import htmlDeleteConfirm from '../html/DeleteElementContent.html';
 import htmlGpsConfirm from '../html/GpsElementContent.html';
 import { UIElement } from 'geowe-ui-js/api/base/UIElement';
@@ -70,24 +69,7 @@ export default class ModalDialogFactory {
         return new PromptModalDialog(options, inputNumberHtml);
     }
 
-    static buildFinishFielDataLoadModalDialog(title, unpositionedObjects) {
-        var options = {
-            id: "htmlFieldDataLoaded",
-            title: title,
-            iconFont: 'fas fa-info',
-            buttons: [{ name: "Aceptar", className: "btn btn-primary" }
-            ]
-        };
-        let fieldDataLoadedHtml = new UIElement('fieldDataLoadedHtml', '', htmlFieldDataLoaded);
-        if(unpositionedObjects.length >0){                  
-            let unpos = fieldDataLoadedHtml.findDomElement('unpositioned');        
-            unpos.innerHTML = unpositionedObjects;
-            fieldDataLoadedHtml.findDomElement('unpositionedDiv').hidden = false;
-        }
-        
-        return new PromptModalDialog(options, fieldDataLoadedHtml);
-    }
-
+  
     static buildGpsRefPointModalDialog() {
         var options = {
             id: "confirmUseGPSDialog",
