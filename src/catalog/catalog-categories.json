@@ -1,29 +1,36 @@
 [{
         "name": "Vehículos",
-        "definitionFile": "catalog/vehicles/vehicleCategory.json"
+        "definitionFile": "catalog/vehicles/vehicleCategory.json",
+        "active":true
     },
     {
         "name": "Señales de tráfico",
-        "definitionFile": "catalog/traffic/trafficCategory.json"
+        "definitionFile": "catalog/traffic/trafficCategory.json",
+        "active":true
     },
     {
         "name": "Personas",
-        "definitionFile": "catalog/people/peopleCategory.json"
+        "definitionFile": "catalog/people/peopleCategory.json",
+        "active":true
     },
     {
         "name": "Carreteras",
-        "definitionFile":"catalog/road/roadCategory.json"
+        "definitionFile":"catalog/road/roadCategory.json",
+        "active":false
     },
     {
         "name": "Edificios",
-        "definitionFile":"catalog/building/buildingCategory.json"
+        "definitionFile":"catalog/building/buildingCategory.json",
+        "active":true
     },
     {
         "name": "Urbanismo",
-        "definitionFile":"catalog/urban/urbanCategory.json"
+        "definitionFile":"catalog/urban/urbanCategory.json",
+        "active":true
     },
     {
         "name": "Veladores",
-        "definitionFile":"catalog/veladores/veladorCategory.json"
+        "definitionFile":"catalog/veladores/veladorCategory.json",
+        "active":false
     }
 ]

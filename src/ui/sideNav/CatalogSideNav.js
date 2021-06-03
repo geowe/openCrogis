@@ -77,7 +77,9 @@ export default class CatalogSideNav {
             option = document.createElement('option');
             option.text = element.name;
             option.value = element.definitionFile;
-            this.dropdown.add(option);
+            if(element.active){
+                this.dropdown.add(option);
+            }            
         });
         this.loadCategoryTypes(categoriesJson[0].definitionFile);
 
