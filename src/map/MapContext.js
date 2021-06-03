@@ -8,6 +8,7 @@ import LayerSwitcher from 'ol-ext/control/LayerSwitcher';
 import GeocodingControl from './control/GeocodingControl';
 import croquisDTO from '../model/croquis/CroquisDTO';
 import { getCenter } from 'ol/extent';
+import htmlzoomToCroquis from '../ui/html/zoomToCroquis.html';
 
 const DEFAULT_ZOOM = 15;
 /**
@@ -47,8 +48,10 @@ export default class MapContext {
         this.map.addControl(geocoding);
 
         var switcher = new LayerSwitcher();
-        switcher.setHeader('<b>Lista de capas</b>');
+        switcher.setHeader(htmlzoomToCroquis);
         this.map.addControl(switcher);
+
+        this.registerZoomToCroquisButtonListener();
 
         this.interaction;
 
@@ -120,7 +123,10 @@ export default class MapContext {
         }else if(this.hasCroquisObjects()){
             let extent = this.layerBuilder.getCroquisObjectLayer().getSource().getExtent();            
             this.zoomTo(getCenter(extent), zoomTo);
-        }        
+        }else if(this.hasAuxObjects()){
+            let extent = this.layerBuilder.getAuxElementLayer().getSource().getExtent();            
+            this.zoomTo(getCenter(extent), zoomTo);
+        }
     }
 
     hasReferencePoints(){
@@ -130,6 +136,11 @@ export default class MapContext {
 
     hasCroquisObjects(){
         let objects = this.layerBuilder.getCroquisObjectLayer().getSource().getFeatures();
+        return objects != 0;
+    }
+
+    hasAuxObjects(){
+        let objects = this.layerBuilder.getAuxElementLayer().getSource().getFeatures();
         return objects != 0;
     }
 
@@ -152,6 +163,11 @@ export default class MapContext {
     
     getRequestData(){
         return this.requestData;
+    }
+
+    registerZoomToCroquisButtonListener(){
+        let elemento = document.getElementById('zoomToCroquisButton');
+        elemento.onclick = ()=>{this.zoomToCroquis(DEFAULT_ZOOM+2);}
     }
 
 }
