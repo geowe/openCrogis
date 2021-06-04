@@ -135,3 +135,11 @@ img.selectItem {
 .ol-control {
     background-color: rgba(255,255,255,0.1);
 }
+
+.donate {
+    position:fixed;
+    bottom: 5em;
+    left: .25em;
+    padding: .2px;
+    margin: .2em;
+}
