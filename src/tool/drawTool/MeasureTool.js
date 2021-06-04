@@ -76,9 +76,11 @@ export class MeasureTool extends CroquisTool {
         draw.on('drawend', (event) => {
             var feature = event.feature;
             var geom = feature.getGeometry();
-            var length = getLength(geom);
-            var cMeasure = new CartographicMeasure(length);
-            cMeasure.setLabel(formatLength(length));
+            let measure = this.getMeasure(geom);
+            let formatedMeasureValue = this.getFormatedMeasureValue(measure); 
+            
+            var cMeasure = new CartographicMeasure(measure);            
+            cMeasure.setLabel(formatedMeasureValue);
 
             feature.setStyle(this.sf.getMeasureStyle(cMeasure));
             feature.set('croquis-object', cMeasure);
@@ -92,6 +94,13 @@ export class MeasureTool extends CroquisTool {
         return draw;
     }
 
+    getMeasure(geom){
+        return (this.type == MEASURE_TYPE_AREA) ? getArea(geom) : getLength(geom);        
+    }
+
+    getFormatedMeasureValue(measure){
+        return (this.type == MEASURE_TYPE_AREA) ? formatArea(measure) : formatLength(measure);
+    }
 
     createMeasureTooltip() {
         if (this.measureTooltipElement) {

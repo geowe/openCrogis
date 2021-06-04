@@ -1,13 +1,13 @@
 import Bar from 'ol-ext/control/Bar';
 import Toggle from 'ol-ext/control/Toggle';
 import DrawReferencePointTool from '../../tool/drawTool/DrawReferencePointTool';
-import { MeasureTool, MEASURE_TYPE_LENGTH } from '../../tool/drawTool/MeasureTool';
 import DeleteOnClickTool from '../../tool/onClickTool/DeleteOnClickTool';
 import SingleSelectTool from '../../tool/onClickTool/SingleSelectTool';
 import Alert from '../Alert';
 import COISideNav from '../sideNav/CroquisObjectInfoSideNav';
 import { getDrawAuxElementToolBar } from './DrawAuxElementSubbar';
 import { getModifyToolBar } from './ModifyElementSubbar';
+import { getMeasureToolBar } from './MeasureSubbar';
 import ModalDialogFactory from '../../ui/modalDialog/ModalDialogFactory';
 
 export default class UIFactory {
@@ -117,52 +117,51 @@ export default class UIFactory {
         });
         toggleBar.addControl(modifyElementButton);
         
-       var drawGeomSubBar = getDrawAuxElementToolBar(mapContext, alertInfo);
-       var drawGeomButton = new Toggle({
-           html: '<i class="fas fa-pencil-alt"></i>',
-           className: "ruler",
-           title: "Dibuja una geometría",
-           bar: drawGeomSubBar,
-           onToggle: function(active) {
-               if (active) {
-                   alertInfo.setContent('<i class="fas fa-pencil-alt"></i> &#124; Seleccione una herramienta para dibujar.')
-                       .show();
-               }
-               mapContext.setCursor('crosshair');
-           }
-       });
-       drawGeomButton.on('change:active', (event) => {
-           drawGeomSubBar.deactivateControls();
-           if (!event.active) {
-               alertInfo.hide();
-           }
-       });
-       toggleBar.addControl(drawGeomButton);
-
-
-        var measureTool = new MeasureTool(MEASURE_TYPE_LENGTH, mapContext)
-        var rulerButton = new Toggle({
-            html: '<i class="fas fa-ruler"></i>',
+        var drawGeomSubBar = getDrawAuxElementToolBar(mapContext, alertInfo);
+        var drawGeomButton = new Toggle({
+            html: '<i class="fas fa-pencil-alt"></i>',
             className: "ruler",
-            title: "Mide una distancia",
+            title: "Dibuja una geometría",
+            bar: drawGeomSubBar,
             onToggle: function(active) {
                 if (active) {
-                    alertInfo.setContent('<i class="fas fa-ruler"></i> &#124; Pulse en el mapa par comenzar a medir (doble pulsación para finalizar)')
+                    alertInfo.setContent('<i class="fas fa-pencil-alt"></i> &#124; Seleccione una herramienta para dibujar.')
                         .show();
-                    measureTool.activate();
-                    mapContext.setCursor('crosshair');
                 }
+                mapContext.setCursor('crosshair');
             }
         });
-        rulerButton.on('change:active', (event) => {            
+        drawGeomButton.on('change:active', (event) => {
+            drawGeomSubBar.deactivateControls();
             if (!event.active) {
-                measureTool.deactivate();
                 alertInfo.hide();
             }
         });
-        toggleBar.addControl(rulerButton);        
+        toggleBar.addControl(drawGeomButton);
 
-
+       
+        var measureSubBar = getMeasureToolBar(mapContext, alertInfo);
+        var measureButton = new Toggle({
+            html: '<i class="fas fa-ruler-horizontal"></i>',
+            className: "ruler",
+            title: "Dibuja una geometría",
+            bar: measureSubBar,
+            onToggle: function(active) {
+                if (active) {
+                    alertInfo.setContent('<i class="fas fa-ruler-horizontal"></i> &#124; Seleccione una herramienta para medir.')
+                        .show();
+                }
+                mapContext.setCursor('crosshair');
+            }
+        });
+        measureButton.on('change:active', (event) => {
+            measureSubBar.deactivateControls();
+            if (!event.active) {
+                alertInfo.hide();
+            }
+        });
+        toggleBar.addControl(measureButton);
+       
         var deleteOnClickTool = new DeleteOnClickTool(mapContext)
         var deleteFetureButton = new Toggle({
             html: '<i class="fas fa-trash"></i>',
