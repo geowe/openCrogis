@@ -4,7 +4,7 @@ Pruébalo aquí: [https://geowe.org/openCrogis/](https://geowe.org/openCrogis/)
 
 ## Tecnología
 
-- Node.js (versión 10.x LTS)
+- Node.js (versión 12 LTS)
 - Openlayers (versión 6)
 
 ## Requisitos de preparación del software
@@ -18,7 +18,13 @@ Configura las URLs en el fichero de configuración config/config.json
 ```
 {
     "proxy_url": "https://proxy-url",
-    "documentation_url":"https://geowe.org/openCrogis/doc/"     
+    "documentation_url":"https://geowe.org/openCrogis/doc/",
+    "ask4Observation":true,
+    "transformObject":{
+        "enableScale":true,
+        "enableRotate":true,
+        "enableTranslate":true
+    }    
 }
 ```
 La propiedad *proxy_url* solo es necesaria si quieres usar un proxy para cargar las capas. 
