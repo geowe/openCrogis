@@ -9,6 +9,7 @@ import GeocodingControl from './control/GeocodingControl';
 import croquisDTO from '../model/croquis/CroquisDTO';
 import { getCenter } from 'ol/extent';
 import htmlzoomToCroquis from '../ui/html/zoomToCroquis.html';
+import configuration from '../Configuration';
 
 const DEFAULT_ZOOM = 15;
 /**
@@ -43,6 +44,7 @@ export default class MapContext {
                 ]
             )
         });
+        this.defaultZoom = configuration.getDefaultZoom() || DEFAULT_ZOOM;
 
         var geocoding = new GeocodingControl(this.map);
         this.map.addControl(geocoding);
@@ -116,7 +118,7 @@ export default class MapContext {
      * @memberof MapContext
      */
     zoomToCroquis(zoom) {
-        let zoomTo = zoom ? zoom : DEFAULT_ZOOM;
+        let zoomTo = zoom ? zoom : this.defaultZoom;
         if (this.hasReferencePoints()) {
             let extent = this.layerBuilder.getReferencePointLayer().getSource().getExtent();
             this.zoomTo(getCenter(extent), zoomTo);
@@ -167,7 +169,7 @@ export default class MapContext {
 
     registerZoomToCroquisButtonListener(){
         let elemento = document.getElementById('zoomToCroquisButton');
-        elemento.onclick = ()=>{this.zoomToCroquis(DEFAULT_ZOOM+2);}
+        elemento.onclick = ()=>{this.zoomToCroquis(this.defaultZoom || DEFAULT_ZOOM);}
     }
 
 }

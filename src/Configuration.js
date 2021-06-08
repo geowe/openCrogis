@@ -40,6 +40,10 @@ class Configuration {
         return this._config.ask4Observation;
     }
 
+    getDefaultZoom(){
+        return this._config.defaultZoom;
+    }
+
 }
 
 export default new Configuration();

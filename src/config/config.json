@@ -6,6 +6,6 @@
         "enableScale":true,
         "enableRotate":true,
         "enableTranslate":true
-    }
-    
+    },
+    "defaultZoom":15    
 }
