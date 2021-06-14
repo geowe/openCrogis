@@ -44,6 +44,14 @@ class Configuration {
         return this._config.defaultZoom;
     }
 
+    getCenter(){
+        return this._config.center;
+    }
+
+    getInitialZoom(){
+        return this._config.initialZoom;
+    }
+
 }
 
 export default new Configuration();

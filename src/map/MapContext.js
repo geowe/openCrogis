@@ -19,14 +19,15 @@ const DEFAULT_ZOOM = 15;
  * @export
  * @class MapConfig
  */
-export default class MapContext {
+export default class MapContext {    
     constructor(layerBuilder) {
-        this.layerBuilder = layerBuilder;
+        this.layerBuilder = layerBuilder;        
+        
         this.map = new Map({
             target: 'map',
             view: new View({
-                zoom: 5,
-                center: [-531597.45945986, 4563049.4381926]
+                zoom: configuration.getInitialZoom() || 5,
+                center: configuration.getCenter() || [-531597.45945986, 4563049.4381926]
             }),
             layers: [this.layerBuilder.getBaseLayerGroup(), this.layerBuilder.getWorkingLayerGroup()],
             controls: defaultControls({

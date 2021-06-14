@@ -2,6 +2,8 @@
     "proxy_url": "https://www.geowe.org/proxy/wmsTiledProxy.php?url=",
     "documentation_url":"https://geowe.org/openCrogis/doc/",
     "ask4Observation":true,
+    "center":[-531597.45945986, 4563049.4381926],
+    "initialZoom":5,
     "transformObject":{
         "enableScale":true,
         "enableRotate":true,
