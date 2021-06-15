@@ -7,6 +7,7 @@ import './css/measure.css';
 import './css/button.css';
 import './css/layerswitcher.css';
 import LayerBuilder from './map/LayerBuilder';
+import LayerSwitcherBuilder from'./map/LayerSwitcherBuilder';
 import MapContext from './map/MapContext';
 import MainToolbarFactory from './ui/toolbar/MainToolbarFactory';
 import MenuToolbar from './ui/toolbar/MenuToolbar';
@@ -32,9 +33,11 @@ configuration.load().then(() => {
 function init() {
     //Considera meter el layerBuilder en el mapConfig
     var layerBuilder = new LayerBuilder();
-    // The map    
-    var mapContext = new MapContext(layerBuilder);
+
+    var mapContext = new MapContext(layerBuilder);   
     var map = mapContext.getMap();
+
+    new LayerSwitcherBuilder(mapContext).build();   
 
     // Main toolbar
     var mainbar = MainToolbarFactory.buildOlExtToolBar(mapContext);

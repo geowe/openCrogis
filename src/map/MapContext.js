@@ -4,11 +4,9 @@ import { defaults as defaultControls, ScaleLine } from 'ol/control';
 import ZoomLevelControl from './control/ZoomLevelControl';
 import { createStringXY } from 'ol/coordinate';
 import { MousePosition } from 'ol/control';
-import LayerSwitcher from 'ol-ext/control/LayerSwitcher';
 import GeocodingControl from './control/GeocodingControl';
 import croquisDTO from '../model/croquis/CroquisDTO';
 import { getCenter } from 'ol/extent';
-import layerSwitcherTools from '../ui/html/layerSwitcherTools.html';
 import configuration from '../Configuration';
 
 const DEFAULT_ZOOM = 15;
@@ -49,14 +47,6 @@ export default class MapContext {
 
         var geocoding = new GeocodingControl(this.map);
         this.map.addControl(geocoding);
-
-        //Layer Switcher y tools. Considera extraer funcionalidad
-        var switcher = new LayerSwitcher();
-        switcher.setHeader(layerSwitcherTools);
-        this.map.addControl(switcher);
-        
-        this.registerZoomToCroquisButtonListener();
-        this.registerCleanCroquisButtonListener();
 
         this.interaction;
 
@@ -168,21 +158,6 @@ export default class MapContext {
     
     getRequestData(){
         return this.requestData;
-    }
-
-    registerZoomToCroquisButtonListener(){
-        let elemento = document.getElementById('zoomToCroquisButton');
-        elemento.onclick = ()=>{this.zoomToCroquis(this.defaultZoom || DEFAULT_ZOOM);}
-    }
-
-    registerCleanCroquisButtonListener(){
-        let elemento = document.getElementById('CleanCroquisButton');
-        elemento.onclick = ()=>{
-            this.layerBuilder.getAuxElementLayer().getSource().clear();
-            this.layerBuilder.getCroquisObjectLayer().getSource().clear();
-            this.layerBuilder.getReferencePointLayer().getSource().clear();
-            this.layerBuilder.getMeasureLayer().getSource().clear();        
-        }
     }
 
 }
